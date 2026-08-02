@@ -10,6 +10,8 @@ assert.match(dockerfile, /pglombardo\/pwpush:2\.9\.7@sha256:[a-f0-9]{64}/);
 assert.doesNotMatch(dockerfile, /:latest/);
 assert.match(dockerfile, /HTTP_PORT=5100/);
 assert.match(dockerfile, /PORT=3000/);
+assert.match(dockerfile, /USER root/);
+assert.match(dockerfile, /railway-entrypoint/);
 assert.match(railway, /healthcheckPath = "\/up"/);
 assert.match(railway, /healthcheckTimeout = 300/);
 assert.match(readme, /\/opt\/PasswordPusher\/storage/);
