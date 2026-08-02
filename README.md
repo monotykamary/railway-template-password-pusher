@@ -1,5 +1,7 @@
 # Password Pusher on Railway
 
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/password-pusher-secure?referralCode=ZqgrJ0)
+
 Deploy Password Pusher 2.9.7 on Railway with encrypted secret sharing, the built-in background worker, and persistent SQLite storage.
 
 The Deploy on Railway button is added only after the published route has been verified.
