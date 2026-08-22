@@ -2,13 +2,13 @@
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/password-pusher-secure?referralCode=ZqgrJ0)
 
-Deploy Password Pusher 2.11.0 on Railway with encrypted secret sharing, the built-in background worker, and persistent SQLite storage.
+Deploy Password Pusher 2.11.4 on Railway with encrypted secret sharing, the built-in background worker, and persistent SQLite storage.
 
 The Deploy on Railway button is added only after the published route has been verified.
 
 ## What this deploys
 
-- Password Pusher `2.11.0`, pinned to the upstream Linux/AMD64 image digest
+- Password Pusher `2.11.4`, pinned to the upstream Linux/AMD64 image digest
 - The web process and Solid Queue worker from the official image
 - One Railway volume mounted at `/opt/PasswordPusher/storage`
 - Railway-managed HTTPS on public port `5100`
@@ -34,7 +34,7 @@ For larger installations, Password Pusher also supports PostgreSQL and S3, but t
 
 ## Limitations
 
-- The upstream `2.11.0` image publishes Linux/AMD64 only.
+- The upstream `2.11.4` image publishes Linux/AMD64 only.
 - SMTP is optional and must be configured before enabling account email features.
 - Railway terminates TLS; the image listens on unprivileged HTTP port `5100` internally.
 
@@ -52,7 +52,7 @@ BASE_URL=https://your-domain.example ./scripts/smoke.sh
 ## Upstream
 
 - Source: https://github.com/pglombardo/PasswordPusher
-- Release: https://github.com/pglombardo/PasswordPusher/releases/tag/v2.11.0
+- Release: https://github.com/pglombardo/PasswordPusher/releases/tag/v2.11.4
 - Documentation: https://docs.pwpush.com/
 - License: Apache License 2.0
 

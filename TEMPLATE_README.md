@@ -2,7 +2,7 @@
 
 ## About Hosting Password Pusher
 
-Password Pusher is an encrypted secret-sharing application. This template deploys upstream version 2.11.0 with its web process, expiration worker, and persistent local storage.
+Password Pusher is an encrypted secret-sharing application. This template deploys upstream version 2.11.4 with its web process, expiration worker, and persistent local storage.
 
 After deployment, open the application and read its deployment logs for the one-time boot code required by `/first_run`. The boot code creates the first administrator and is then removed.
 
@@ -22,7 +22,7 @@ After deployment, open the application and read its deployment logs for the one-
 
 ### Implementation Details
 
-The service uses the official Password Pusher 2.11.0 Linux/AMD64 image pinned by digest. Railway terminates HTTPS and routes traffic to unprivileged internal port 5100. The upstream web process and Solid Queue worker run together, which allows both processes to use the same SQLite database and local file storage safely.
+The service uses the official Password Pusher 2.11.4 Linux/AMD64 image pinned by digest. Railway terminates HTTPS and routes traffic to unprivileged internal port 5100. The upstream web process and Solid Queue worker run together, which allows both processes to use the same SQLite database and local file storage safely.
 
 `PWPUSH_MASTER_KEY` and `SECRET_KEY_BASE` are generated during template deployment. Never replace the master key casually: existing pushes depend on it. Cross-service references are not required in this single-service topology.
 
