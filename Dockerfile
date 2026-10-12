@@ -1,4 +1,4 @@
-FROM docker.io/pglombardo/pwpush:2.14.1@sha256:79d2024f9ade18cf412bb39045309309e96fc5e9815eac8fa2ffd046018c2942
+FROM docker.io/pglombardo/pwpush:2.14.3@sha256:4b46570c65b9f4d6bd098d8790211eeacafded4d889b1ecdeabf31e009c60377
 
 USER root
 RUN apk add --no-cache su-exec
