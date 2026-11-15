@@ -2,13 +2,13 @@
 
 [![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/password-pusher-secure?referralCode=ZqgrJ0)
 
-Deploy Password Pusher 2.16.1 on Railway with encrypted secret sharing, the built-in background worker, and persistent SQLite storage.
+Deploy Password Pusher 2.17.2 on Railway with encrypted secret sharing, the built-in background worker, and persistent SQLite storage.
 
 The Deploy on Railway button is added only after the published route has been verified.
 
 ## What this deploys
 
-- Password Pusher `2.16.1`, pinned to the upstream Linux/AMD64 image digest
+- Password Pusher `2.17.2`, pinned to the upstream Linux/AMD64 image digest
 - The web process and Solid Queue worker from the official image
 - One Railway volume mounted at `/opt/PasswordPusher/storage`
 - Railway-managed HTTPS on public port `5100`
@@ -34,7 +34,7 @@ For larger installations, Password Pusher also supports PostgreSQL and S3, but t
 
 ## Limitations
 
-- The upstream `2.16.1` image publishes Linux/AMD64 only.
+- The upstream `2.17.2` image publishes Linux/AMD64 only.
 - SMTP is optional and must be configured before enabling account email features.
 - Railway terminates TLS; the image listens on unprivileged HTTP port `5100` internally.
 
@@ -52,8 +52,12 @@ BASE_URL=https://your-domain.example ./scripts/smoke.sh
 ## Upstream
 
 - Source: https://github.com/pglombardo/PasswordPusher
-- Release: https://github.com/pglombardo/PasswordPusher/releases/tag/v2.16.1
+- Release: https://github.com/pglombardo/PasswordPusher/releases/tag/v2.17.2
 - Documentation: https://docs.pwpush.com/
 - License: Apache License 2.0
 
 This repository contains a small Railway port adapter and deployment documentation. Password Pusher remains copyright its upstream contributors and is not affiliated with Railway.
+
+## Stateful validation
+
+`python3 scripts/smoke.py` reads `BASE_URL` and `SMOKE_PHASE` (`boot`, `upgrade`, `redeploy`). It creates the first administrator only at boot and verifies the same encrypted push payload after upgrades and redeploys. Validation state stays private and must not be published. Live first-run validation takes `PWPUSH_BOOT_CODE`, `PWPUSH_ADMIN_EMAIL`, and `PWPUSH_ADMIN_PASSWORD` from the environment. Boat validation may read the generated boot code from the exact isolated service container; no production HTTPS or secure-cookie setting is changed.
