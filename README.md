@@ -4,8 +4,6 @@
 
 Deploy Password Pusher 2.17.2 on Railway with encrypted secret sharing, the built-in background worker, and persistent SQLite storage.
 
-The Deploy on Railway button is added only after the published route has been verified.
-
 ## What this deploys
 
 - Password Pusher `2.17.2`, pinned to the upstream Linux/AMD64 image digest
@@ -39,6 +37,8 @@ For larger installations, Password Pusher also supports PostgreSQL and S3, but t
 - Railway terminates TLS; the image listens on unprivileged HTTP port `5100` internally.
 
 ## Updating
+
+Back up the storage volume and retain `PWPUSH_MASTER_KEY` and `SECRET_KEY_BASE` before upgrading. The release checks preserved the original encrypted push across the image update and exact-version redeployment. For rollback, restore the matching database and storage backup rather than assuming an older binary can read a migrated database.
 
 Version updates are deliberate. Update both the image tag and immutable digest in `Dockerfile`, review upstream release notes and migrations, then repeat create/retrieve, worker, persistence, redeploy, and log-soak tests.
 

@@ -28,6 +28,10 @@ The service uses the official Password Pusher 2.17.2 Linux/AMD64 image pinned by
 
 Persistent data is mounted at `/opt/PasswordPusher/storage` and receives daily Railway backups.
 
+## Upgrade precautions
+
+Back up `/opt/PasswordPusher/storage` and retain both generated secrets before upgrading. The original encrypted push was checked after the image update and exact-version redeployment. Restore a matching storage/database backup if rolling back a schema change.
+
 ## Why Deploy Password Pusher on Railway?
 
 Railway supplies managed HTTPS, durable storage, deployment logs for the secure first-run flow, health checks, and repeatable redeployment without introducing a separate reverse proxy or database for small installations.
